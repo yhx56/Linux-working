@@ -1,0 +1,208 @@
+https://www.bilibili.com/video/BV1Sv411r7vd?p=1&vd_source=f34fbb94411729427c7957728faf0df2  （课程链接）
+
+基础篇---实际操作篇---高级篇 
+
+基础篇：
+
+	GUN/Linux 和 Unix 的关系。VMware 的安装、Centos7.9的安装
+
+	--- Centos NAT 网络模式连接网络  （三种网络模式：桥接模式【容易IP冲突】、NAT模式【没有IP冲突、虚拟系统可以和外部通讯】、仅主机模式【无法联网】）
+
+	虚拟机克隆、虚拟机快照、虚拟机迁移、删除、Linux_vmtools（windows 和 Centos 共享文件夹）
+	
+	Centos7.9手动分区：boot引导分区，swap交换分区、根分区
+			文件系统：xfs、ext4、swap
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+开始入门：
+	目录结构介绍、目录结构详解、在 Linux 一切皆文件。
+		/bin:存放常用命令
+		/sbin:存放系统管理员使用的系统管理程序
+
+	远程登录、远程文件传输（xshell、xftp）
+
+	vi、vim 的使用(正常模式、插入模式、命令行模式)
+
+	Linux 的关机、重启、用户注销
+		
+		shutdown -h now	立刻关机
+		shudown -h 1	1分钟后关机
+		reboot		现在重启计算机
+		sync		把内存的数据同步到磁盘
+		
+		su - 用户名	切换用户
+		logout		注销用户（图形界面没有效果）
+	
+	Linux 的用户管理：
+		创建用户：useradd 用户名
+			-d   指定目录
+			passwd 用户名  （创建用户密码）
+
+		pwd      （显示当前用户所在的目录）
+		
+		删除用户：userdel 用户名
+			userdel -r 用户名  （家目录一起删除）建议保留家目录
+		查看用户信息：id 用户名  （显示用户组和id）
+		查看当前用户信息：
+			[root@master1 home]# who am i
+			root     pts/0        2024-04-23 18:21 (192.168.1.1)
+
+
+
+		创建用户组：groupadd 组名
+ 		删除组：groupdel     组名
+		增加用户时直接加上组：useradd -g 用户组  用户名
+	
+			/etc/passwd 文件：记录用户的各种信息
+			/etc/shadow 文件：口令配置文件
+			/etc/group 文件：记录 Linux 组的信息
+	
+		运行级别：0~6 、5：图形界面 6：系统重启	
+			0：关机
+			1：单用户（找回丢失的密码）
+			2：多用户状态没有网络服务
+			3：多用户状态有网络服务
+			4：系统未使用保留给用户
+			5：图像界面
+			init 数字（切换运行级别）
+			systemctl get-default：查看运行级别
+
+		找回 root 密码：root 密码忘记，如何找回。	
+		设置运行级别，linux运行后，直接进入命令行终端（3）
+
+		帮助命令：man、help（内置命令）
+			man ls
+
+	文件目录指令：绝对路径和相对路径 cd 命令：cd ~：回到家目录   cd ..：回到上一级目录
+			mkdir ：创建目录
+			mkdir -p：创建多级目录
+			rmdir：删除空目录
+			rm -rf：删除命令
+
+			touch：创建文件.txt	
+			cp：复制拷贝命令  
+				-r ：递归拷贝
+			mv：重命名和移动命令
+			cat：文件查看
+				-n：显示行号
+			more：文件查看
+
+			less：文件查看
+			echo：输出内容到控制台
+			head：查看文件开头部分
+				-n：查看几行文件
+			
+
+			 
+			重定向：>     追加：>>
+
+			tail:输出文件尾部内容
+
+			ln：硬连接        也叫符号链接，类似于win的快捷方式
+			ln -s ：软链接        
+
+	时间日期指令：date：显示当前时间
+		       date +%Y：显示当前年份
+		       date +%m：显示当前月份
+		       date +%d：显示当前是哪一天
+
+	查找指令：find、locate、which、grep
+
+	压缩和解压：gzip、gunzip
+		   gzip （压缩文件，*.gz）-r：压缩目录
+		   gunzip（解压缩文件）   -d：指定解压后的目录
+		   tar：打包命令
+
+		   zip：用于压缩文件
+	                   unzip：用于解压
+
+	组管理和权限管理：chown 用户名 文件名  （修改用户所有者）
+		             groupadd  组名 （创建组）
+		             chgrp 组名  文件名 （修改文件组）
+		             usermod -g 新组名 用户名   （改变用户所在的组）
+		             usermod -d 目录名  用户名 （改变改用户登录的初始目录）
+
+	Linux 文件权限：RWX：读写执行   r=4，w=2，x=1
+			chmod：修改文件或目录的权限。+、-、=
+			chown：改变所有者
+			所有者、所属组、其他用户
+			u：所有者、g：所有组、o：所有人
+
+	定时任务调度：crond  选项
+			-e： 编辑任务
+			-l：查询任务
+			-r：删除任务   （https://www.runoob.com/w3cnote/linux-crontab-tasks.html）
+
+	磁盘管理：lsblk（查看分区挂载情况和大小）、IDE硬盘和SCSI硬盘   lsblk -f（查看更加清晰）
+		添加硬盘并挂载：1.添加一块硬盘 2. 重新启动系统 3.fdisk /dev/sdb(分区命令) 4.格式化磁盘：mkis -t ext4 /dev/sdb1 5.开始挂载：创建挂载目录：mount /dev/sdb1 挂载目录
+	                                         6.umount：取消挂载目录 7.用命令行挂载重启之后会失效，永久挂载：/ect/fstab
+		
+		查询系统整体磁盘使用情况：df -h    磁盘使用率达到了80%就要注意了
+		推荐安装软件：tree（查看磁盘目录）
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+	网络配置：[root@master1 ~]# vim /etc/sysconfig/network-scripts/ifcfg-ens33  （修改网络配置） NAT模式
+
+	修改主机名：[root@master1 ~]# vim /etc/hostname   （修改完成之后需要重启系统）
+
+	设置主机名和hosts映射：ping主机名即可ping IP
+
+	Linux 进程：分为前台和后台
+		命令：top、ps（可以加参数）
+		kill：杀死进程
+
+		pstree：树状显示进程（可以加参数）
+
+
+
+	服务管理
+		service  服务名  start | stop | restart | reload | status
+		Centos7 很多服务不在使用 service ，而是 systemctl
+
+	查看网络状况：netstat
+		
+	软件的安装：rpm、yum
+		查询已安装的rpm列表：rpm -qa | grep xx
+
+		卸载 rpm 包：rpm -e RPM包的名称
+
+
+	Shell 编程：脚本要以   #!/bin/bash  开头
+		脚本常用的执行方式：输入脚本的绝对路径或者相对路径、或者赋予权限，在执行脚本
+		变量：系统变量和用户自定义变量
+		unset：撤销变量
+		readonly：静态变量
+		export：将shell变量输出为环境变量
+		source：修改后的配置立即生效
+
+	日志：Centos7日志目录：/var/log
+		[root@master1 ~]# cd /var/log
+       		[root@master1 log]# lastlog     查看登录日志
+
+
+	备份与恢复：
+		yum -y install dump
+		yum -y install restore
+
+
+	
+
+	
+
+	
+	
+		
+		
+
+
+
+
+		             		
+	
+	
+	
+
+	
