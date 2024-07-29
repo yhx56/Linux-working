@@ -27,49 +27,49 @@
 
 ## Git 英文翻译 && 命令解析
 
-| 英文 && 命令                              | 翻译 && 解析                   |
-| :---------------------------------------- | :----------------------------- |
-| history                                   | 查看历史命令                   |
-| git config --global user.name "用户名"    | 配置用户名（全局）             |
-| git config --global user.email "用户邮箱" | 配置用户邮箱（全局）           |
-| git config --list                         | 查看用户配置                   |
-| git init                                  | 初始化命令                     |
-| git status                                | 查看文件状态                   |
-| Untracked files                           | 红色文件（未提交状态）         |
-| git add  文件名                           | 添加文件到暂存区               |
-| git add --all                             | 全部文件添加到暂存区           |
-| git commit -m "描述信息" 文件名           | 提交到版本库，并描述信息       |
-| git log                                   | 查看提交日志                   |
-| git log --oneline --graph                 | 精简查看提交日志               |
-| git log --oneline --author="yhx"          | 寻找一名叫做 “yhx”作者的commit |
-| git rm 文件名 --cached                    | 解除git的控制                  |
-| git checkout 文件名                       | 把不下心删除的文件恢复         |
-| git reset 版本号                          | 回退到前一次                   |
-| git branch 分支名                         | 创建一个分支                   |
-| git branch -v                             | 查看分支                       |
-| git checkout 分支名                       | 切换分支                       |
-| git branch -m 原始分支名 新分支名         | 修改分支名                     |
-| git branch -d 分支名  （D：强制删除）     | 删除分支名                     |
-| git merge 分支名                          | 合并分支                       |
-| git tag 标签名 版本号                     | 添加标签                       |
-| git tag -d 标签名                         | 删除标签                       |
-| clone                                     | 克隆                           |
-| pull                                      | 拉                             |
-| push                                      | 推                             |
-| git reset --hard 版本号                   | 版本穿梭                       |
-| git reflog                                | 查看历史记录                   |
-| git rm --caches 文件名                    | 清除暂存区内容                 |
-| git reflog                                | 查看提交记录                   |
-| git remote -v                             | 查看别名                       |
-| git remote remove 别名                    | 删除别名                       |
-| git remote add 别名名称  需要别名的链接   | 创建别名                       |
-| git push 别名或者https链接  分支名        | 本地代码推送                   |
-| git pull   别名或者https链接  分支名      | 远程代码拉取                   |
-| git clone 目标链接                        | 克隆远程代码                   |
-| origin                                    | 远程仓库别名                   |
-| ssh-keygen -t rsa -C ”邮箱“               | 配置ssh密钥                    |
-| git push origin 标签名                    | 将创建的标签推送到远程仓库     |
-| git update-git-for-windows                | 更新 Git 版本                  |
+| 英文 && 命令                              | 翻译 && 解析                   | 英文 && 命令           | 翻译 && 解析 |
+| :---------------------------------------- | :----------------------------- | ---------------------- | ------------ |
+| history                                   | 查看历史命令                   | git config --global -l | 查看 Git设置 |
+| git config --global user.name "用户名"    | 配置用户名（全局）             | git rm --cached 文件名 | 移出暂存区   |
+| git config --global user.email "用户邮箱" | 配置用户邮箱（全局）           |                        |              |
+| git config --list                         | 查看用户配置                   |                        |              |
+| git init                                  | 初始化命令                     |                        |              |
+| git status                                | 查看文件状态                   |                        |              |
+| Untracked files                           | 红色文件（未提交状态）         |                        |              |
+| git add  文件名                           | 添加文件到暂存区               |                        |              |
+| git add --all                             | 全部文件添加到暂存区           |                        |              |
+| git commit -m "描述信息" 文件名           | 提交到版本库，并描述信息       |                        |              |
+| git log                                   | 查看提交日志                   |                        |              |
+| git log --oneline --graph                 | 精简查看提交日志               |                        |              |
+| git log --oneline --author="yhx"          | 寻找一名叫做 “yhx”作者的commit |                        |              |
+| git rm 文件名 --cached                    | 解除git的控制                  |                        |              |
+| git checkout 文件名                       | 把不下心删除的文件恢复         |                        |              |
+| git reset 版本号                          | 回退到前一次                   |                        |              |
+| git branch 分支名                         | 创建一个分支                   |                        |              |
+| git branch -v                             | 查看分支                       |                        |              |
+| git checkout 分支名                       | 切换分支                       |                        |              |
+| git branch -m 原始分支名 新分支名         | 修改分支名                     |                        |              |
+| git branch -d 分支名  （D：强制删除）     | 删除分支名                     |                        |              |
+| git merge 分支名                          | 合并分支                       |                        |              |
+| git tag 标签名 版本号                     | 添加标签                       |                        |              |
+| git tag -d 标签名                         | 删除标签                       |                        |              |
+| clone                                     | 克隆                           |                        |              |
+| pull                                      | 拉                             |                        |              |
+| push                                      | 推                             |                        |              |
+| git reset --hard 版本号                   | 版本穿梭                       |                        |              |
+| git reflog                                | 查看历史记录                   |                        |              |
+| git rm --caches 文件名                    | 清除暂存区内容                 |                        |              |
+| git reflog                                | 查看提交记录                   |                        |              |
+| git remote -v                             | 查看别名                       |                        |              |
+| git remote remove 别名                    | 删除别名                       |                        |              |
+| git remote add 别名名称  需要别名的链接   | 创建别名                       |                        |              |
+| git push 别名或者https链接  分支名        | 本地代码推送                   |                        |              |
+| git pull   别名或者https链接  分支名      | 远程代码拉取                   |                        |              |
+| git clone 目标链接                        | 克隆远程代码                   |                        |              |
+| origin                                    | 远程仓库别名                   |                        |              |
+| ssh-keygen -t rsa -C ”邮箱“               | 配置ssh密钥                    |                        |              |
+| git push origin 标签名                    | 将创建的标签推送到远程仓库     |                        |              |
+| git update-git-for-windows                | 更新 Git 版本                  |                        |              |
 
 
 
